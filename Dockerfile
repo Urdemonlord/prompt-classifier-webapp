@@ -1,23 +1,21 @@
-# Use an official Python runtime as a parent image
+# Aplikasi web deteksi prompt injection (FastAPI + DeBERTa-v3-base biner)
+# Build dari folder induk `skripsi/` agar folder model ikut ter-copy:
+#   docker build -t pi-detector -f webapp/Dockerfile .
+#   docker run -p 8000:8000 pi-detector
 FROM python:3.10-slim
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Install dependencies
-COPY requirements.txt .
+# Dependensi
+COPY webapp/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the web application code
-COPY . .
+# Kode aplikasi + model biner
+COPY webapp/ ./webapp/
+COPY best_model_biner/ ./best_model_biner/
 
-# Copy the model directory from the parent context
-# This requires running docker build from the parent directory `skripsi` 
-# e.g., `docker build -t prompt-classifier -f webapp/Dockerfile .`
-COPY best_model/ ./best_model/
+ENV MODEL_PATH=/app/best_model_biner
+EXPOSE 8000
+WORKDIR /app/webapp
 
-# Expose Streamlit's default port
-EXPOSE 8501
-
-# Command to run the application
-CMD ["streamlit", "run", "webapp/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

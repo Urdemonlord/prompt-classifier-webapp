@@ -1,0 +1,22 @@
+INFO:     Started server process [2108]
+INFO:     Waiting for application startup.
+[info] Memuat model dari '../best_model_biner' ke cpu ...
+Loading weights:   0%|          | 0/202 [00:00<?, ?it/s]Loading weights: 100%|##########| 202/202 [00:00<00:00, 3032.78it/s]
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+[info] Siap. Perangkat=cpu Label={0: 'safe', 1: 'prompt injection'} Opsi praproses={'case_folding': True, 'unicode_nfkc': True, 'strip_zero_width': True, 'normalize_whitespace': True, 'homoglyph': True, 'leetspeak': False}
+INFO:     127.0.0.1:61450 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61460 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61462 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61464 - "POST /predict_batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52858 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52858 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52858 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58678 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60292 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60292 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60292 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59006 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59006 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53208 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53208 - "GET /openapi.json HTTP/1.1" 200 OK
